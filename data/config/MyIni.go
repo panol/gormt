@@ -8,22 +8,23 @@ import (
 
 // Config custom config struct
 type Config struct {
-	CfgBase          `yaml:"base"`
-	DBInfo           DBInfo `yaml:"db_info"`
-	OutDir           string `yaml:"out_dir"`
-	URLTag           string `yaml:"url_tag"`  // url tag
-	Language         string `yaml:"language"` // language
-	DbTag            string `yaml:"db_tag"`   // 数据库标签（gormt,db）
-	Simple           bool   `yaml:"simple"`
-	IsWEBTag         bool   `yaml:"is_web_tag"`
-	IsWebTagPkHidden bool   `yaml:"is_web_tag_pk_hidden"` // web标记是否隐藏主键
-	IsForeignKey     bool   `yaml:"is_foreign_key"`
-	IsOutSQL         bool   `yaml:"is_out_sql"`
-	IsOutFunc        bool   `yaml:"is_out_func"`
-	IsGUI            bool   `yaml:"is_gui"` //
-	IsTableName      bool   `yaml:"is_table_name"`
-	IsNullToPoint    bool   `yaml:"is_null_to_point"` // null to porint
-	TablePrefix      string `yaml:"table_prefix"`     // 表前缀
+	CfgBase              `yaml:"base"`
+	DBInfo               DBInfo `yaml:"db_info"`
+	OutDir               string `yaml:"out_dir"`
+	URLTag               string `yaml:"url_tag"`  // url tag
+	Language             string `yaml:"language"` // language
+	DbTag                string `yaml:"db_tag"`   // 数据库标签（gormt,db）
+	Simple               bool   `yaml:"simple"`
+	IsWEBTag             bool   `yaml:"is_web_tag"`
+	IsWebTagPkHidden     bool   `yaml:"is_web_tag_pk_hidden"` // web标记是否隐藏主键
+	IsForeignKey         bool   `yaml:"is_foreign_key"`
+	IsOutSQL             bool   `yaml:"is_out_sql"`
+	IsOutFunc            bool   `yaml:"is_out_func"`
+	IsGUI                bool   `yaml:"is_gui"` //
+	IsTableName          bool   `yaml:"is_table_name"`
+	IsNullToPoint        bool   `yaml:"is_null_to_point"`         // null to porint
+	TablePrefix          string `yaml:"table_prefix"`             // 表前缀
+	IsJsonTagEqualColumn bool   `yaml:"is_json_tag_equal_column"` // json tag是否等于列名
 }
 
 // DBInfo mysql database information. mysql 数据库信息
@@ -220,4 +221,8 @@ func SetTablePrefix(t string) {
 // GetTablePrefix get table prefix
 func GetTablePrefix() string {
 	return _map.TablePrefix
+}
+
+func GetIsJsonTagEqualColumn() bool {
+	return _map.IsJsonTagEqualColumn
 }

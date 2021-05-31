@@ -126,12 +126,17 @@ func (m *_Model) genTableElement(cols []ColumnsInfo) (el []genstruct.GenElement)
 				tmp.AddTag(_tagGorm, v.Gormt)
 			}
 
-			// json tag
-			if config.GetIsWEBTag() {
-				if isPK && config.GetIsWebTagPkHidden() {
-					tmp.AddTag(_tagJSON, "-")
-				} else {
-					tmp.AddTag(_tagJSON, mybigcamel.UnSmallMarshal(mybigcamel.Marshal(v.Name)))
+			if config.GetIsJsonTagEqualColumn() {
+				tmp.AddTag(_tagJSON, v.Name)
+			} else {
+				// json tag
+				if config.GetIsWEBTag() {
+
+					if isPK && config.GetIsWebTagPkHidden() {
+						tmp.AddTag(_tagJSON, "-")
+					} else {
+						tmp.AddTag(_tagJSON, mybigcamel.UnSmallMarshal(mybigcamel.Marshal(v.Name)))
+					}
 				}
 			}
 

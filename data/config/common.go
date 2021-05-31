@@ -39,11 +39,12 @@ var _map = Config{
 	Simple:   false,
 	IsWEBTag: false,
 	// SingularTable: true,
-	IsForeignKey: true,
-	IsOutSQL:     false,
-	IsOutFunc:    true,
-	IsGUI:        false,
-	TablePrefix:  "",
+	IsForeignKey:         true,
+	IsOutSQL:             false,
+	IsOutFunc:            true,
+	IsGUI:                false,
+	TablePrefix:          "",
+	IsJsonTagEqualColumn: true,
 }
 
 var configPath string
