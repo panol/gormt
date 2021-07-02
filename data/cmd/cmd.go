@@ -67,6 +67,7 @@ func init() {
 	rootCmd.Flags().Int("port", 3306, "端口号")
 
 	rootCmd.Flags().StringP("table_prefix", "t", "", "表前缀")
+	rootCmd.Flags().StringP("table_names", "b", "", "指定表名称")
 }
 
 // initConfig reads in config file and ENV variables if set.
