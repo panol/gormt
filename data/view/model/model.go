@@ -6,6 +6,7 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/iancoleman/strcase"
 	"github.com/xxjwxc/gormt/data/view/cnf"
 
 	"github.com/xxjwxc/public/mybigcamel"
@@ -89,7 +90,7 @@ func (m *_Model) genTableElement(cols []ColumnsInfo) (el []genstruct.GenElement)
 		if strings.EqualFold(v.Type, "gorm.Model") { // gorm model
 			tmp.SetType(v.Type) //
 		} else {
-			tmp.SetName(getCamelName(v.Name))
+			tmp.SetName(strcase.ToCamel(v.Name))
 			tmp.SetNotes(v.Notes)
 			tmp.SetType(getTypeName(v.Type, v.IsNull))
 			for _, v1 := range v.Index {
