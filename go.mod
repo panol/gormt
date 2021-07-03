@@ -1,4 +1,4 @@
-module github.com/xxjwxc/gormt
+module github.com/panol/gormt
 
 go 1.13
 
@@ -9,6 +9,7 @@ require (
 	github.com/leodido/go-urn v1.2.0 // indirect
 	github.com/nicksnyder/go-i18n/v2 v2.0.3
 	github.com/spf13/cobra v1.0.0
+	github.com/xxjwxc/gormt v1.1.2
 	github.com/xxjwxc/public v0.0.0-20210303034518-3d2086731fb9
 	golang.org/x/text v0.3.3
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
