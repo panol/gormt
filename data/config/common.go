@@ -45,6 +45,7 @@ var _map = Config{
 	IsGUI:                false,
 	TablePrefix:          "",
 	IsJsonTagEqualColumn: true,
+	TableNames:           "",
 }
 
 var configPath string

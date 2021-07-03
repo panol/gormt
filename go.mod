@@ -4,6 +4,7 @@ go 1.13
 
 require (
 	github.com/go-playground/universal-translator v0.17.0 // indirect
+	github.com/iancoleman/strcase v0.1.3
 	github.com/jroimartin/gocui v0.4.0
 	github.com/leodido/go-urn v1.2.0 // indirect
 	github.com/nicksnyder/go-i18n/v2 v2.0.3
