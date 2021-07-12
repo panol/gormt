@@ -61,7 +61,9 @@ func (m *mysqlModel) GetPkgName() string {
 	}
 
 	if len(pkgName) == 0 || pkgName == "." {
-		list = strings.Split(tools.GetModelPath(), "/")
+		curDir := tools.GetModelPath()
+		curDir = strings.Replace(curDir, "\\", "/", -1)
+		list = strings.Split(curDir, "/")
 		if len(list) > 0 {
 			pkgName = list[len(list)-1]
 		}
@@ -84,7 +86,7 @@ func (m *mysqlModel) getPackageInfo(orm *mysqldb.MySqlDB, info *model.DBInfo) {
 	// 	}
 	// 	tabls = newTabls
 	// }
-	fmt.Println(tabls)
+
 	for tabName, notes := range tabls {
 		var tab model.TabInfo
 		tab.Name = tabName
@@ -93,7 +95,7 @@ func (m *mysqlModel) getPackageInfo(orm *mysqldb.MySqlDB, info *model.DBInfo) {
 		if config.GetIsOutSQL() {
 			// Get create SQL statements.获取创建sql语句
 			rows, err := orm.Raw("show create table " + assemblyTable(tabName)).Rows()
-			//defer rows.Close()
+			// defer rows.Close()
 			if err == nil {
 				if rows.Next() {
 					var table, CreateTable string
@@ -112,7 +114,7 @@ func (m *mysqlModel) getPackageInfo(orm *mysqldb.MySqlDB, info *model.DBInfo) {
 		info.TabList = append(info.TabList, tab)
 	}
 	// sort tables
-	fmt.Println(info.TabList)
+
 	sort.Slice(info.TabList, func(i, j int) bool {
 		return info.TabList[i].Name < info.TabList[j].Name
 	})
@@ -213,7 +215,7 @@ func (m *mysqlModel) getTableElement(orm *mysqldb.MySqlDB, tab string) (el []mod
 	return
 }
 
-/// getTables Get columns and comments.获取表列及注释
+// / getTables Get columns and comments.获取表列及注释
 func (m *mysqlModel) getTables(orm *mysqldb.MySqlDB) map[string]string {
 	tbDesc := make(map[string]string)
 
